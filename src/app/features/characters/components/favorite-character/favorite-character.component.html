@@ -1,0 +1,11 @@
+<mat-card class="p-4 mt-4 hover:cursor-pointer" (click)="showCharacterDetails(); $event.stopPropagation()">
+  <mat-card-title>
+    <div class="flex flex-row justify-between">
+      <span class="font-bold text-lg">Favorite character: {{ (favoriteCharacter$ | async)?.name }}</span>
+      <button mat-fab extended color="primary" (click)="navigateToDetails(); $event.stopPropagation()">
+        <mat-icon>start</mat-icon>
+        Go to Details
+      </button>
+    </div>
+  </mat-card-title>
+</mat-card>

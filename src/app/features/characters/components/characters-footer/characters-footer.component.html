@@ -1,0 +1,26 @@
+<div class="flex flex-row gap-4 w-full">
+  <mat-card class="p-4 my-4 w-full">
+    <mat-card-title>
+      Total by species:
+    </mat-card-title>
+    <mat-card-subtitle>
+      <ul>
+        <li *ngFor="let specie of totalBySpecies | mapToArray">
+          {{ specie.key }}: {{ specie.value }}
+        </li>
+      </ul>
+    </mat-card-subtitle>
+  </mat-card>
+  <mat-card class="p-4 my-4 w-full">
+    <mat-card-title>
+      Total by types:
+    </mat-card-title>
+    <mat-card-subtitle>
+      <ul>
+        <li *ngFor="let type of totalByType | mapToArray">
+          {{ type.key }}: {{ type.value }}
+        </li>
+      </ul>
+    </mat-card-subtitle>
+  </mat-card>
+</div>

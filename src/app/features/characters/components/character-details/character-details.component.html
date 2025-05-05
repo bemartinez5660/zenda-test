@@ -1,0 +1,57 @@
+<div class="border border-1 border-gray rounded-sm">
+  <mat-card (click)="$event.stopPropagation()">
+    <mat-card-content>
+      <mat-card-title>
+        <h2>Character Details:</h2>
+        {{ character?.name }}
+      </mat-card-title>
+      <mat-card-header>
+        @if (!(loadingDetails$ | async)) {
+          <div [ngClass]="{'flex-col': homePage, 'flex-row': !homePage}" class="flex  gap-4">
+            <img class="object-cover" src="{{character?.image}}" alt="Character img">
+            <div class="grid grid-cols-2 gap-2 m-2">
+              <span class="flex flex-row gap-2">
+                <p class="font-bold">Origin:</p>
+                <p>{{ character?.origin?.name != 'unknown' ? character?.origin?.name : 'Doesn\'t have origin information' }}</p>
+              </span>
+              <span class="flex flex-col gap-1">
+                <div class="flex flex-row gap-2">
+                  <p class="font-bold">Location:</p>
+                  <p>{{ (location$ | async)?.name != 'unknown' ? (location$ | async)?.name : 'Doesn\'t have location information' }}</p>
+                </div>
+                <div class="flex flex-row gap-2">
+                  <p class="font-bold">Location Type:</p>
+                  <p>{{ (location$ | async)?.type != 'unknown' ? (location$ | async)?.type : 'Doesn\'t have location type' }}</p>
+                </div>
+              </span>
+              <span class="flex flex-col gap-1">
+                <div class="flex flex-row gap-2">
+                  <p class="font-bold">Resident:</p>
+                  <p>{{ (locationResident$ | async)?.name || 'This location doesn\'t have Residents' }}</p>
+                </div>
+                <div class="flex flex-row gap-2">
+                  <p class="font-bold">Resident gender:</p>
+                  <p>{{ (locationResident$ | async)?.gender || 'This location doesn\'t have Residents' }}</p>
+                </div>
+              </span>
+              <span class="flex flex-col gap-1">
+                <div class="flex flex-row gap-2">
+                  <p class="font-bold">Episode Information:</p>
+                  <p>{{ (episodeInfo$ | async)?.name || 'This Episode doesn\'t have information' }}</p>
+                </div>
+                <div class="flex flex-row gap-2">
+                  <p class="font-bold">Air Date:</p>
+                  <p>{{ (episodeInfo$ | async)?.airDate || 'This Episode doesn\'t have information' }}</p>
+                </div>
+              </span>
+            </div>
+          </div>
+
+        } @else {
+          <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+        }
+      </mat-card-header>
+    </mat-card-content>
+  </mat-card>
+
+</div>

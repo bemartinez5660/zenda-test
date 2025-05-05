@@ -1,0 +1,13 @@
+<div class="flex gap-[2%] flex-wrap flex-col xl:flex-row max-w-4/5 mx-auto" (click)="onOutsideClick()">
+  @if (!!(favoriteCharacter$ | async)) {
+    <app-favorite-character class="w-full h-[5%]"
+                            (showFavoriteCharacterEmit)="updateCharacter($event)"></app-favorite-character>
+  }
+  <app-characters-list class="grow shrink w-full mx-auto"
+                       [ngClass]="{'lg:w-3/5': !!(selectedCharacter$ | async)}"></app-characters-list>
+  @if (!!(selectedCharacter$ | async)) {
+    <app-character-details  class="grow w-full lg:w-1/5 shrink m-4 overflow-auto mx-auto"
+                           [character]="(selectedCharacter$ | async)"></app-character-details>
+  }
+  <app-characters-footer class="w-full h-[5%] "></app-characters-footer>
+</div>

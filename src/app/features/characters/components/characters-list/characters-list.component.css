@@ -1,0 +1,25 @@
+.table-container {
+  max-height: 70dvh !important;
+  overflow: auto !important;
+}
+
+mat-paginator {
+  margin-top: 16px;
+}
+
+th.mat-sort-header-sorted {
+  color: black;
+}
+
+.filter-input {
+  width: 100%;
+  font-size: 12px;
+}
+
+.mat-icon.custom-icon {
+  color: gray;
+}
+
+.row-is-clicked {
+  font-weight: bold;
+}

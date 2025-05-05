@@ -4,9 +4,9 @@
                             (showFavoriteCharacterEmit)="updateCharacter($event)"></app-favorite-character>
   }
   <app-characters-list class="grow shrink w-full mx-auto"
-                       [ngClass]="{'lg:w-3/5': !!(selectedCharacter$ | async)}"></app-characters-list>
+                       [ngClass]="{'xl:w-3/5': !!(selectedCharacter$ | async)}"></app-characters-list>
   @if (!!(selectedCharacter$ | async)) {
-    <app-character-details  class="grow w-full lg:w-1/5 shrink m-4 overflow-auto mx-auto"
+    <app-character-details class="grow w-full xl:w-1/5 shrink m-4 overflow-auto mx-auto"
                            [character]="(selectedCharacter$ | async)"></app-character-details>
   }
   <app-characters-footer class="w-full h-[5%] "></app-characters-footer>

@@ -7,7 +7,7 @@
       </mat-card-title>
       <mat-card-header>
         @if (!(loadingDetails$ | async)) {
-          <div [ngClass]="{'flex-col': homePage, 'flex-row': !homePage}" class="flex  gap-4">
+          <div [ngClass]="{'flex-col': portrait, 'flex-row': !portrait}" class="flex  gap-4">
             <img class="object-cover" src="{{character?.image}}" alt="Character img">
             <div class="grid grid-cols-2 gap-2 m-2">
               <span class="flex flex-row gap-2">

@@ -16,7 +16,7 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class CharacterDetailsComponent implements OnChanges, OnInit {
   @Input() character?: Character | null;
-  homePage = true;
+  @Input() portrait = true;
 
   location$?: Observable<Location | null>;
   locationResident$?: Observable<Character | null>;
@@ -37,7 +37,7 @@ export class CharacterDetailsComponent implements OnChanges, OnInit {
   ngOnInit() {
     this._activatedRoute.params.subscribe(params => {
       if (!!params['id']) {
-        this.homePage = false
+        this.portrait = false
       }
     })
   }
